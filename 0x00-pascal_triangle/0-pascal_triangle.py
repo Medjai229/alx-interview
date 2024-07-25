@@ -31,7 +31,7 @@ def pascal_triangle(n):
             if j == 0 or j == i:  # the first and last elements are always 1
                 row.append(1)
             else:
-                curr = prev * ((i - j + 1) / j)
+                curr = prev * ((i - j + 1) // j)
                 row.append(curr)
                 prev = curr  # store the current value for the next element
         result.append(row)
