@@ -32,7 +32,7 @@ def pascal_triangle(n):
                 row.append(1)
             else:
                 curr = prev * ((i - j + 1) / j)
-                row.append(int(curr))
+                row.append(curr)
                 prev = curr  # store the current value for the next element
         result.append(row)
     return result
