@@ -4,10 +4,12 @@
 
 This module contains the function minOperations
 
-Provides a function to calculate the minimum number of operations to transform a number into 1.
+Provides a function to calculate the minimum number
+of operations to transform a number into 1.
 
 Author: Malik Hussein
 """
+
 
 def minOperations(n: int) -> int:
     """
