@@ -26,29 +26,29 @@ def main():
     The main function of the program, responsible
     for parsing log data from standard input.
     """
-    status_codes = {'200': 0, '301': 0, '400': 0, '401': 0,
-                    '403': 0, '404': 0, '405': 0, '500': 0}
-    size = 0
-    count = 0
+    status_code_counts = {'200': 0, '301': 0, '400': 0, '401': 0,
+                          '403': 0, '404': 0, '405': 0, '500': 0}
+    total_size = 0
+    line_count = 0
     try:
         for line in sys.stdin:
             split_line = line.split()
-            if count % 10 == 0 and count != 0:
-                print_status(size=size, status=status_codes)
+            line_count += 1
+            if line_count % 10 == 0 and line_count != 0:
+                print_status(size=total_size, status=status_code_counts)
             try:
                 code = split_line[-2]
-                if code in status_codes.keys():
-                    status_codes[code] += 1
-            except Exception:
+                if code in status_code_counts:
+                    status_code_counts[code] += 1
+            except IndexError:
                 pass
             try:
-                size += int(split_line[-1])
-            except Exception:
+                total_size += int(split_line[-1])
+            except (IndexError, ValueError):
                 pass
-            count += 1
-        print_status(size=size, status=status_codes)
+        print_status(size=total_size, status=status_code_counts)
     except KeyboardInterrupt:
-        print_status(size=size, status=status_codes)
+        print_status(size=total_size, status=status_code_counts)
         raise
 
 
