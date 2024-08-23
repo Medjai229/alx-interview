@@ -2,10 +2,12 @@
 """
 0-validate_utf8.py
 
-This module provides a function to check if a given list of integers represents a valid UTF-8 encoding.
+This module provides a function to check if a given
+list of integers represents a valid UTF-8 encoding.
 
 Author: Malik Hussein
 """
+
 
 def validUTF8(data):
     """
