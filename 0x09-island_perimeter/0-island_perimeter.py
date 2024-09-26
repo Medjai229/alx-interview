@@ -9,7 +9,7 @@ def dfs(grid, i, j):
     Perform DFS to calculate the perimeter of the island.
     """
     # If the current cell is out of bounds or water
-    if i < 0 or i > len(grid) or j < 0 or j > len(grid[0]) or grid[i][j] == 0:
+    if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0:
         return 1
 
     # If the cell is visited before return 0
