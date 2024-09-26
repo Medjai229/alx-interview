@@ -10,17 +10,18 @@ def island_perimeter(grid):
     """
     height = len(grid)
     width = len(grid[0])
-    counter = 0
-    adj_counter = 0
+    perimeter = 0
 
     for i in range(height):
         for j in range(width):
             if grid[i][j]:
-                counter += 1
-                if i > 0 and grid[i - 1][j] == 1:
-                    adj_counter += 1
-                if j > 0 and grid[i][j - 1] == 1:
-                    adj_counter += 1
+                # Start with 4 for each land cell
+                perimeter += 4
 
-    perimeter = counter * 4 - adj_counter * 2
+                # Subtract 2 for each adjacent land cell
+                if i > 0 and grid[i - 1][j] == 1:
+                    perimeter -= 2
+                if j > 0 and grid[i][j - 1] == 1:
+                    perimeter -= 2
+
     return perimeter
