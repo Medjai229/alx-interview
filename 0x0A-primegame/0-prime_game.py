@@ -17,7 +17,7 @@ def sieve_of_eratosthenes(n):
             for multiple in range(i * i, n + 1, i):
                 primes[multiple] = 0
 
-    return [i for i in range(2, n + 1) if primes[i]]
+    return primes
 
 
 def isWinner(x, nums):
@@ -36,12 +36,8 @@ def isWinner(x, nums):
     max_n = max(nums)
     primes = sieve_of_eratosthenes(max_n)
 
-    max_round = [0] * (max_n + 1)
-    for prime in primes:
-        max_round[prime] = 1
-
     for n in nums:
-        turns = sum(max_round[0:n + 1])
+        turns = sum(primes[0:n + 1])
         if turns % 2 == 1:
             maria_wins += 1
         else:
